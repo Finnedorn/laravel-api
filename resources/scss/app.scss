@@ -1,0 +1,26 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+h1 {
+    color: $text-color;
+}
+
+img {
+    width: 100%;
+}
+
+.img-box {
+    width: 800px;
+}
+
+.img-preview-box {
+    width: 200px;
+}
