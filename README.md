@@ -247,4 +247,11 @@ Route::fallback(function() {
     return redirect()->route('admin.dashboard');
 });
 
+# Api
+
+# crea una cartella api in controller
+
+# creare un controller nella cartella Api
+php artisan make:controller Api/ProjectController
+
 ```

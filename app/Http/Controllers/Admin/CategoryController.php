@@ -21,10 +21,6 @@ class CategoryController extends Controller
     {
         //
         // solo l'admin puo cambiare le categorie quindi:
-        $currentUserId = Auth::id();
-        if($currentUserId != 1){
-            abort(403);
-        }
         $categories = Category::all();
         return view('admin.categories.index', compact('categories'));
     }
