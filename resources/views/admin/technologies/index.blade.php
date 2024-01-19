@@ -40,14 +40,14 @@
                         </td>
                         @if (Auth::id() == 1)
                             <td>
-                                <a href="{{route('admin.technologies.edit', $technology->id)}}">
+                                <a href="{{route('admin.technologies.edit', $technology->slug)}}">
                                     <button class="btn btn-success rounded-3 border-0">
                                         <i class="fa-solid fa-pen" style="font-size: 0.7rem"></i>
                                     </button>
                                 </a>
                             </td>
                             <td>
-                                <a href="{{route('admin.technologies.show', $technology->id)}}">
+                                <a href="{{route('admin.technologies.show', $technology->slug)}}">
                                     <button class="btn btn-primary rounded-3 border-0 me-2">
                                         <i class="fa-regular fa-file-lines" style="font-size: 1rem"></i>
                                     </button>

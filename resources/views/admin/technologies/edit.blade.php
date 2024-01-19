@@ -18,7 +18,7 @@
                 @endif
 
                 {{-- form di edit  --}}
-                <form action="{{ route('admin.technologies.update', $technology->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.technologies.update', $technology->slug) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
                     @method('PUT')
@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Torna Indietro</button>
-                    <form action="{{ route('admin.technologies.destroy', $technology->id) }}" method="POST">
+                    <form action="{{ route('admin.technologies.destroy', $technology->slug) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Conferma</button>

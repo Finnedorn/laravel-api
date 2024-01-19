@@ -18,7 +18,7 @@
                 @endif
 
                 {{-- form di edit  --}}
-                <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.categories.update', $category->slug) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
                     @method('PUT')

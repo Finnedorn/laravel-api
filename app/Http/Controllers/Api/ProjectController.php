@@ -23,11 +23,11 @@ class ProjectController extends Controller
         );
     }
 
-    public function show($id)
+    public function show($slug)
     {
         // eager loading, la funzione with() mi permette di associare eventuali elementi in relazione con project
         // first() mi prende il primo risultato disponibile associato a quell'id
-        $project = Project::where('id', $id)->with(['category', 'technologies'])->first();
+        $project = Project::where('slug', $slug)->with(['category', 'technologies'])->first();
         return response()->json(
             [
                 'success'=>true,

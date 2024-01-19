@@ -6,7 +6,7 @@
             <div class="row pt-5">
                 <div class="container">
                     <div>
-                        @if (Auth::id() == $project->user_id || Auth::id() == 1)
+                        @if(Auth::id() == 1)
                             <div class="d-flex justify-content-between  align-items-center w-75">
                                 <h1 class="pb-3">
                                     {{ $category->name }}

@@ -12,7 +12,7 @@
                                 {{ $project->project_title }}
                             </h1>
                             {{-- bottone di edit --}}
-                            <a href="{{route('admin.projects.edit', $project->id)}}">
+                            <a href="{{route('admin.projects.edit', $project->slug)}}">
                                 <button class="btn btn-success rounded-3 border-0">
                                     <i class="fa-solid fa-pen" style="font-size: 0.7rem"></i>
                                 </button>

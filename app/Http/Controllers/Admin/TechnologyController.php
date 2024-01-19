@@ -44,7 +44,7 @@ class TechnologyController extends Controller
         $slug = Str::slug($formData['name'],'-');
         $formData['slug'] = $slug;
         $newTechnology = Technology::create($formData);
-        return redirect()->route('admin.technologies.show', $newTechnology->id);
+        return redirect()->route('admin.technologies.show', $newTechnology->slug);
     }
 
     /**
@@ -84,7 +84,7 @@ class TechnologyController extends Controller
             $formData['slug'] = $slug;
         }
         $technology->update($formData);
-        return redirect()->route('admin.technologies.show', $technology->id);
+        return redirect()->route('admin.technologies.show', $technology->slug);
     }
 
     /**

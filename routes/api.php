@@ -27,4 +27,4 @@ Route::get('projects', [ProjectController::class, 'index']);
 // creiamo la rotta dello show
 // se digitassi sul browser http://127.0.0.1:8000/api/projects/1 mi mostrerebbe
 // la pagina col json del primo elemento in projects
-Route::get('projects/{id}', [ProjectController::class, 'show']);
+Route::get('projects/{slug}', [ProjectController::class, 'show']);

@@ -86,7 +86,7 @@ class ProjectController extends Controller
             $newProject->technologies()->attach($request->technologies);
         }
 
-        return redirect()->route('admin.projects.show', $newProject->id);
+        return redirect()->route('admin.projects.show', $newProject->slug);
     }
 
     /**
@@ -154,7 +154,7 @@ class ProjectController extends Controller
             $project->technologies()->detach();
         }
 
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project->slug);
     }
 
     /**
@@ -167,6 +167,7 @@ class ProjectController extends Controller
         if($currentUserId != $project->user_id && $currentUserId != 1){
             abort(403);
         }
+
         // la funzione detach scollega automaticamente tutti gli elementi della tabella legati a quel campo
         // è utile solo in funzione del delete
         $project->technologies()->detach();

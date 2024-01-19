@@ -20,7 +20,6 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        // solo l'admin puo cambiare le categorie quindi:
         $categories = Category::all();
         return view('admin.categories.index', compact('categories'));
     }
@@ -44,7 +43,7 @@ class CategoryController extends Controller
         $slug = Str::slug($formData['name'],'-');
         $formData['slug'] = $slug;
         $newCategory = Category::create($formData);
-        return redirect()->route('admin.categories.show', $newCategory->id);
+        return redirect()->route('admin.categories.show', $newCategory->slug);
     }
 
     /**
@@ -62,6 +61,10 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        $currentUserId = Auth::id();
+        if($currentUserId != 1){
+            abort(403);
+        }
         return view('admin.categories.edit', compact('category'));
     }
 
@@ -75,7 +78,7 @@ class CategoryController extends Controller
         $slug = Str::slug($formData['name'],'-');
         $formData['slug'] = $slug;
         $category->update($formData);
-        return redirect()->route('admin.categories.show', $category->id);
+        return redirect()->route('admin.categories.show', $category->slug);
     }
 
     /**
