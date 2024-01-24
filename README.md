@@ -247,11 +247,39 @@ Route::fallback(function() {
     return redirect()->route('admin.dashboard');
 });
 
-# Api
+# Api-------------
+
+# vai in config>cors e cambia la dicitura "allowed_origins" in questo:
+'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:3000')],
+
+# andiamo nel env e inseriamo il parametro:
+APP_FRONTEND_URL=http://localhost:5174
 
 # crea una cartella api in controller
 
 # creare un controller nella cartella Api
 php artisan make:controller Api/ProjectController
 
+# imposta le route nella pagina routes>api (ricordati di importare il controller)
+
+# imposta le funzioni di response del controller 
+
+
+# Mail----------------
+
+# 
+php artisan make:mail NewContact
+
+# 
+php artisan make:model Lead -rcm
+
+
+# Fresh -------------
+# è un comando che mi permette di eliminare e rimigrare tutto il db 
+# da usare con attenzione, mi permette di fixare qual'ora avessi  creato qualche dato in migration o seeder errato
+
+php artisan migrate:refresh
+
+# c'è anche la versione solo seed
+php artisan migrate:refresh --seed
 ```

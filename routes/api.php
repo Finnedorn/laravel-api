@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TechnologyController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::get('categories/{slug}', [CategoryController::class, 'show']);
 Route::get('technologies', [TechnologyController::class, 'index']);
 
 Route::get('technologies/{slug}', [TechnologyController::class, 'show']);
+
+// la rotta per le mail, è post perchè raccoglierà i dati inviati dal form nel front end tramite chiamata axios
+Route::post('contacts', [LeadController::class, 'store']);
