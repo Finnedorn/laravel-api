@@ -22,7 +22,7 @@ class NewContact extends Mailable
     {
         //
         // associamo la variabile $lead all'attributo della funzione
-        $this->lead = $_lead
+        $this->lead = $_lead;
     }
 
     /**
