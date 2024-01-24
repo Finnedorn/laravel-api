@@ -9,10 +9,19 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
     //
-    public function index()
+    // con Request $request io sto effettuando una dependency injection: ovvero sto importando una classe
+    // cioè request che mi gestisce i pacchetti di dati dal form (formData)
+    // dentro la funzione index di un'altra classe che in questo caso è projectcontroller, per farla funzionare
+    public function index(Request $request)
     {
-        // anche qua al posto di Project::all() potrei usare la funzione paginate
-        $projects = Project::with(['category', 'technologies'])->paginate(5);
+
+        if($request->query('category')){
+            $projects = Project::where('category_id', $request->query('category'))->get();
+        } else {
+            // anche qua al posto di Project::all() potrei usare la funzione paginate
+            $projects = Project::with(['category', 'technologies'])->paginate(5);
+        }
+
         // come nell'index del controller base anche qua la formula è simile
         // ma qua chiedo di resitutire un json
         return response()->json(
@@ -26,7 +35,7 @@ class ProjectController extends Controller
     public function show($slug)
     {
         // eager loading, la funzione with() mi permette di associare eventuali elementi in relazione con project
-        // first() mi prende il primo risultato disponibile associato a quell'id
+        // first() mi prende il primo risultato disponibile associato a quell'id e mi restituisce un oggetto e non un array come get
         $project = Project::where('slug', $slug)->with(['category', 'technologies'])->first();
         return response()->json(
             [
