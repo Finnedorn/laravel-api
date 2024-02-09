@@ -146,7 +146,7 @@ php artisan migrate:rollback
 
 
 #popolare il db
-php artisan make:seeder UsersTableSeeder
+php artisan make:seeder UserSeeder
 
 php artisan db:seed --class=UsersTableSeeder
 

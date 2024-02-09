@@ -19,12 +19,15 @@ class ProjectSeeder extends Seeder
         foreach($projects as $project){
             $newProject = new Project();
             $newProject->user_id = 1;
-            $newProject->slug = Str::slug($project['project_title']);
+            // il meteodo str trasforma col metood slug converte la stringa che passi in una versiona da essere usata nella url
+            $newProject->slug = Str::slug($project['project_title'], '-');
             $newProject->project_title = $project['project_title'];
             $newProject->repo_name = $project['repo_name'];
             $newProject->repo_link = $project['link'];
             $newProject->description = $project['description'];
             $newProject->save();
+
+            $newProject->technologies()->sync($project['technologies']);
         }
     }
 }

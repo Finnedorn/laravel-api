@@ -25,6 +25,7 @@ class LeadController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**

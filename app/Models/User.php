@@ -51,4 +51,9 @@ class User extends Authenticatable
     public function projects() {
         return $this->hasMany(Project::class);
     }
+
+    // imposto la relazione uno a uno
+    public function userdetail() {
+        return $this->hasOne(UserDetail::class);
+    }
 }

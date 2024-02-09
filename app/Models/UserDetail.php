@@ -13,6 +13,7 @@ class UserDetail extends Model
     // pertanto con questa dicitura associo la tabella al model manualmente
     protected $table = 'user_detail';
 
+    // imposto la relazione uno a uno
     public function user() {
         return $this->belongsTo(User::class);
     }
